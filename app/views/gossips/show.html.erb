@@ -1,0 +1,12 @@
+<div style="margin-left: 100px; margin-top: 100px; width: 30%;">
+	<h1>Voici le gossip numéro <%= @gossip.id %> !</h1>
+	<hr />
+	<blockquote class="blockquote">
+	  <p class="mb-0"><%= @gossip.content %></p>
+ 		<footer class="blockquote-footer"><%= @gossip.anonymous_gossipeur %></footer>
+	</blockquote>
+	<%= link_to "Editer le Gossip", edit_gossip_path(@gossip.id), class: "btn btn-success" %> <%= link_to "Supprimer le Gossip", @gossip, class: "btn btn-danger", method: :delete %>
+	<hr />
+	<%= link_to "> Voir tous les Gossips", gossips_path %>
+
+</div>

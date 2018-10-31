@@ -1,0 +1,32 @@
+<div style="margin-left: 100px; margin-top: 100px; width: 30%;">
+	<h1>Voici la liste des Gossips</h1>
+	<hr />
+
+	
+	<table class="table table-hover">
+  	<thead>
+    	<tr>
+     	 <th>ID</th>
+     	 <th>Anonymous Gossipeur</th>
+     	 <th>Lien vers le Gossip</th>
+    	</tr>
+  	</thead>
+  	<tbody>
+			<% @gossip.each do |element| %>
+				<tr>
+					<td>
+						<%= element.id %>
+					</td>
+					<td>
+						<%= element.anonymous_gossipeur %>
+					</td>
+					<td>
+						<%= link_to "> Lien", gossip_path(element.id) %>
+					</td>
+				</tr>
+			<% end %>
+  	</tbody>
+	</table>
+
+
+</div>
