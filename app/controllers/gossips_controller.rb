@@ -12,7 +12,7 @@ class GossipsController < ApplicationController
 
   def show
     @gossip = Gossip.find(params[:id])
-    @comments = Comment.all
+    @comments = Gossip.find(params[:id]).comments
   end
 
   def index
