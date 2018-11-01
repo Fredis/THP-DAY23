@@ -8,15 +8,17 @@
 
 
 	<% if @gossip.user_id == params[:registration_id].to_i %>
-
 		<%= link_to "Editer le Gossip", edit_registration_gossip_path(params[:registration_id], @gossip.id), class: "btn btn-success" %>
 		<%= link_to "Supprimer le Gossip", registration_gossip_path(params[:registration_id], @gossip.id), class: "btn btn-danger", method: :delete %>
-	
 	<% end %>
-
-
-
-
+	
+	<hr />
+	<% unless @gossip.likes.find_by(user_id: User.find_by(email: Registration.find(3).email).id) %>
+	<%= link_to "Like?", registration_gossip_likes_path(params[:registration_id], @gossip.id), method: :post  %>
+	<% else %>
+	LIké
+	<% end %>
+	
 	<hr />
 	<%= link_to "Voir tous les gossips", registration_gossips_path(params[:registration_id]) %>
 
