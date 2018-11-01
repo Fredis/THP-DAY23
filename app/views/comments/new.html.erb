@@ -1,0 +1,14 @@
+<h1>Ajouter un commentaire</h1>
+
+
+<%= form_for [@registration, @gossip, @comment] do |f| %>
+  <div class="form-group">		
+    <label for="formGroupExampleInput">Ajoute moi du commentaire bien sale :</label>
+    <%= f.text_area :content, class: "form-control" %>
+
+  </div>
+    <%= f.submit "Enregistre ton commentaire !", class: "btn btn-success" %>
+
+<% end %>
+</div>
+

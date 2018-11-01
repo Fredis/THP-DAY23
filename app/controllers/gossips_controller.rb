@@ -11,11 +11,12 @@ class GossipsController < ApplicationController
   end
 
   def show
-  	@gossip = Gossip.find(params[:id])
+    @gossip = Gossip.find(params[:id])
+    @comments = Comment.all
   end
 
   def index
-  	@gossip = Gossip.all
+    @gossip = Gossip.all
   end
 
   def edit
@@ -34,6 +35,8 @@ class GossipsController < ApplicationController
     @gossip.destroy
     redirect_to registration_gossips_path(params[:registration_id])
   end
+
+  private
 
   def params_from_form
     params.require(:gossip).permit(:content)

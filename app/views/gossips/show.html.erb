@@ -14,7 +14,41 @@
 	
 
 	
-	<hr />
+  <hr />
+  
+  <%= link_to "Commenter le Gossip", new_registration_gossip_comment_path(params[:registration_id],params[:id]), class: "btn btn-success" %>
+
+
+	<table class="table table-hover">
+  <thead>
+    <tr>
+  
+      <th>Commentaire</th>
+      <th>Auteur</th>
+     
+      <th>Editer le commentaire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |element| %>
+      <tr>
+        <td>
+          <%= element.content %>
+        </td>
+        <td>
+          <%= element.user.first_name %>
+        </td>
+        <td>
+          <% if params[:registration_id].to_i == element.user_id %>
+          <%= link_to "Lien", edit_registration_gossip_comment_path(params[:registration_id], params[:id], element.id) %>	
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 	<%= link_to "Voir tous les gossips", registration_gossips_path(params[:registration_id]) %>
 
 
