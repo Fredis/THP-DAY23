@@ -18,10 +18,10 @@
 						<%= element.id %>
 					</td>
 					<td>
-						<%= element.anonymous_gossipeur %>
+						<%= element.user.first_name %>
 					</td>
 					<td>
-						<%= link_to "> Lien", gossip_path(element.id) %>
+					
 					</td>
 				</tr>
 			<% end %>

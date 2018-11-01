@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  root 'registrations#new'
   resources 'registrations', only: [:new, :create] do
      resources 'gossips', only: [:new, :create, :show, :index, :edit, :update, :destroy]
   end
