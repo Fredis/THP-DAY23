@@ -5,10 +5,11 @@ class RegistrationsController < ApplicationController
 
   def create
     @registration = Registration.create(registration_params)
-    if Registration.check(@registration)
+    instance_checking = Registration.new 
+    if instance_checking.check(@registration)
       redirect_to root_path
     else
-      redirect_to 'https://google.com'
+      redirect_to 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
     end
   end
 

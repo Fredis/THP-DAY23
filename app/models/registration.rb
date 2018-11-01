@@ -1,5 +1,5 @@
 class Registration < ApplicationRecord
-  def Registration.check(registration)
+  def check(registration)
     if User.find_by(email: "#{registration.email}") == nil
       return false 
     end 
