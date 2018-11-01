@@ -3,10 +3,22 @@
 	<hr />
 	<blockquote class="blockquote">
 	  <p class="mb-0"><%= @gossip.content %></p>
- 		<footer class="blockquote-footer"><%= @gossip.anonymous_gossipeur %></footer>
+ 		<footer class="blockquote-footer"><%= @gossip.user.first_name %></footer>
 	</blockquote>
-	<%= link_to "Editer le Gossip", edit_gossip_path(@gossip.id), class: "btn btn-success" %> <%= link_to "Supprimer le Gossip", @gossip, class: "btn btn-danger", method: :delete %>
+
+
+	<% if @gossip.user_id == params[:registration_id].to_i %>
+
+		<%= link_to "Editer le Gossip", edit_registration_gossip_path(params[:registration_id], @gossip.id), class: "btn btn-success" %>
+		<%= link_to "Supprimer le Gossip", registration_gossip_path(params[:registration_id], @gossip.id), class: "btn btn-danger", method: :delete %>
+	
+	<% end %>
+
+
+
+
 	<hr />
-	<%= link_to "> Voir tous les Gossips", gossips_path %>
+	<%= link_to "Voir tous les gossips", registration_gossips_path(params[:registration_id]) %>
+
 
 </div>

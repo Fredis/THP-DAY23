@@ -21,7 +21,8 @@
 						<%= element.user.first_name %>
 					</td>
 					<td>
-					
+
+						<%= link_to "Lien", registration_gossip_path(params[:registration_id], element.id) %>	
 					</td>
 				</tr>
 			<% end %>
