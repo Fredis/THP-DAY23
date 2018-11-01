@@ -6,8 +6,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-  	gossip = Gossip.create!(params_from_form)
-  	redirect_to gossip_path(gossip.id)
+  	gossip = Gossip.create!(content: params_from_form[:content], user_id: params[:registration_id].to_i)
     redirect_to registration_gossips_path(params[:registration_id])
   end
 
@@ -37,7 +36,7 @@ class GossipsController < ApplicationController
   end
 
   def params_from_form
-  	return params.require(:gossip).permit(:user_id, :content)
+    params.require(:gossip).permit(:content)
   end
 
 end
