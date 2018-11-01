@@ -1,2 +1,13 @@
-<h1>Comments#edit</h1>
-<p>Find me in app/views/comments/edit.html.erb</p>
+<h1>Des regrets sur ce commentaire ? </h1>
+
+<%= form_for [@registration, @gossip, @comment] do |f| %>
+
+  <div class="form-group">		
+    <label for="formGroupExampleInput">Modifie moi ça :</label>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+
+    <%= f.submit "Update ton Commentaire !", class: "btn btn-success" %>
+
+<% end %>
+

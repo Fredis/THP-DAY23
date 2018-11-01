@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
   def edit
+    @registration = Registration.find(params[:registration_id])
+    @gossip = Gossip.find(params[:gossip_id])
+    @comment = Comment.find(params[:id])
   end
 
   def new
@@ -14,6 +17,9 @@ class CommentsController < ApplicationController
   end 
 
   def update
+    @comment = Comment.find(params[:id])
+  	@comment.update(params_from_form)
+    redirect_to registration_gossips_path(params[:registration_id])
   end
 
   def destroy
