@@ -9,5 +9,10 @@
 
     <%= f.submit "Update ton Commentaire !", class: "btn btn-success" %>
 
+
+    <%= link_to "Supprimer le Commentaire", registration_gossip_comment_path(params[:registration_id], params[:gossip_id], @comment.id), class: "btn btn-danger", method: :delete %>
+
+
+
 <% end %>
 
