@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
     @registration = Registration.create(registration_params)
     instance_checking = Registration.new 
     if instance_checking.check(@registration)
-      redirect_to registration_gossips_path(@registration.id)
+      redirect_to registration_gossips_path(User.find_by(email: "#{@registration.email}").id)
     else
       redirect_to 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
     end
