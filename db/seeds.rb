@@ -19,3 +19,9 @@ end
 50.times do |ind|
   likes = Like.create!(user_id: Faker::Number.between(1, 10), gossip_id: Faker::Number.between(1, 10))
 end
+
+
+100.times do |ind|
+  registrations = Registration.create!(email: Faker::Internet.email, password: Faker::Overwatch.hero)
+end
+
