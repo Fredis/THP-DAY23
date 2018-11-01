@@ -64,4 +64,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-gem 'concurrent-ruby', '>= 1.0.5'
+gem 'concurrent-ruby', '~> 1.0.5'
