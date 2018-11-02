@@ -1,24 +1,25 @@
-# README
+# README : THE GOSSIP PROJECT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bonjour! L'équipe est composée de Fred (FredS), Axel Pélerin et Juliette Audema. 
 
-Things you may want to cover:
+Ce programme est une app Ruby on Rails
 
-* Ruby version
 
-* System dependencies
+Le but de l'appli sera d'être une plateforme pour pouvoir commérer tous ensemble 😏. 
+Pour l'instant nous avons créé :
+- La page d'accueil qui est une page de connexion. Il faut donc avoir un compte utilisateur enregistré sinon c'est l'échec assuré héhé.
+### Voici un utilisateur en base: email: meg@cremin.com, password: Reaper
+- Une fois connecté.e, vous arriverez sur l'index des Gossips, que vous pourrez consulter
+- La view de chaque Gossip vous permet: de commenter le Gossip et de le liker
+- Vous pouvez éditer vos commentaires ou les supprimer si vous avez des gros regrets
 
-* Configuration
+Le site est en ligne et vous pouvez le visiter ici : https://the-ducking-gossip-project.herokuapp.com
 
-* Database creation
 
-* Database initialization
+## Comment se servir du programme 
 
-* How to run the test suite
+Pour faire marcher ce programme, il vous faut d'abord faire ```$ bundle install``` ensuite ```$ rails db:migrate``` et pour terminer ```$ rails db:seed```
 
-* Services (job queues, cache servers, search engines, etc.)
+## L'arborescence du dossier et les programmes
 
-* Deployment instructions
-
-* .
+Dans ce dossier vous allez trouver l'arborescence classique des apps Ruby on Rails.
