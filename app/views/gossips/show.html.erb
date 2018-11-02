@@ -2,27 +2,20 @@
 	<h1>Voici le gossip numéro <%= @gossip.id %> !</h1>
 	<hr />
 	<blockquote class="blockquote">
-	  <p class="mb-0"><%= @gossip.content %></p>
- 		<footer class="blockquote-footer"><%= @gossip.user.first_name %></footer>
+	 <p class="mb-0"><%= @gossip.content %></p>
+ 	<footer class="blockquote-footer"><%= @gossip.user.first_name %></footer>
 	</blockquote>
-
-
 	<% if @gossip.user_id == params[:registration_id].to_i %>
 		<%= link_to "Editer le Gossip", edit_registration_gossip_path(params[:registration_id], @gossip.id), class: "btn btn-success" %>
 		<%= link_to "Supprimer le Gossip", registration_gossip_path(params[:registration_id], @gossip.id), class: "btn btn-danger", method: :delete %>
 	<% end %>
-	
-
-	
   <hr />
   
   <%= link_to "Commenter le Gossip", new_registration_gossip_comment_path(params[:registration_id],params[:id]), class: "btn btn-success" %>
-
-
+  <%= "#{@gossip.comments.count.to_s} comments" %>
 	<table class="table table-hover">
   <thead>
     <tr>
-  
       <th>Commentaire</th>
       <th>Auteur</th>
      
@@ -48,6 +41,16 @@
   </tbody>
 </table>
 
+ <hr />
+
+ 	<%= "#{@gossip.likes.count.to_s} likes" %>
+	<br />
+	<% if @gossip.likes.find_by(user_id: User.find(params[:registration_id])) == nil  %>
+		<%= link_to "Like?, à remplacer par un truc plus design", registration_gossip_likes_path(params[:registration_id], @gossip.id), method: :post  %>
+	<% else %>
+		Liké, à remplacer par un truc plus design
+	<% end %>
+	<br />
 
 	<%= link_to "Voir tous les gossips", registration_gossips_path(params[:registration_id]) %>
 

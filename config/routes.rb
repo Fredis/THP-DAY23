@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources 'registrations', only: [:new, :create] do
      resources 'gossips', only: [:new, :create, :show, :index, :edit, :update, :destroy] do 
         resources 'comments', only: [:new, :create, :show, :edit, :update, :destroy, :show] 
+        resources 'likes', only: [:new, :create, :show, :edit, :update, :destroy, :show]
      end 
   end
 
