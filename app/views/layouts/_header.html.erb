@@ -11,7 +11,9 @@
       <% if params[:registration_id] %>
         <li><%= link_to "Créer un gossip", new_registration_gossip_path(params[:registration_id]) %></li>
         <li><%= link_to "Liste de tous les Gossips", registration_gossips_path(params[:registration_id]) %></li>
-    	</ul>
+	<% else %>
+	<li><%= link_to "Créer un utilisateur", new_creation_path %></li>
+	</ul>
   	</div>
   </nav>
   

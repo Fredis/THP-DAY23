@@ -1,0 +1,26 @@
+<h1>Incriptez vous</h1>
+	
+<%= form_tag creations_path, method: :post do%>
+	<div class="form-group">		
+		<%= label_tag 'Email:' %>
+		<%= text_field_tag 'email', '', placeholder: 'Your username...', class: "form-control", id: "formGroupExampleInput2" %>
+	</div>	
+	<div class="form-group">	
+		<%= label_tag 'Mot de passe:' %>
+		<%= text_field_tag 'password', '', placeholder: 'Your username...', class: "form-control", id: "formGroupExampleInput2" %>
+	</div>
+	<div class="form-group">
+		<%= label_tag 'Prénom:' %>
+		<%= text_field_tag 'first_name', '', placeholder: 'Your username...', class: "form-control", id: "formGroupExampleInput2" %>
+	</div>
+	<div class="form-group">
+		<%= label_tag 'Nom:' %>
+		<%= text_field_tag 'last_name', '', placeholder: 'Your username...', class: "form-control", id: "formGroupExampleInput2" %>
+	</div>
+	<div class="form-group">		
+		<%= label_tag 'Bio:' %>
+		<%= text_field_tag 'description', '', placeholder: 'Your username...', class: "form-control", id: "formGroupExampleInput2" %>
+	</div>
+		<%= submit_tag "Inscription", name: nil, class: "btn btn-success" %>
+<% end %>
+
