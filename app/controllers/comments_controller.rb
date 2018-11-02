@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+before_action :find_commentable
+
   def edit
     @registration = Registration.find(params[:registration_id])
     @gossip = Gossip.find(params[:gossip_id])
@@ -12,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create!(content: params_from_form[:content], user_id: params[:registration_id].to_i, gossip_id: params[:gossip_id].to_i)
+    @comment = @commentable.comments.create!(content: params_from_form[:content], user_id: params[:registration_id].to_i, gossip_id: params[:gossip_id].to_i)
     redirect_to registration_gossips_path(params[:registration_id])
   end 
 
@@ -35,6 +37,11 @@ class CommentsController < ApplicationController
   private 
   def params_from_form
     params.require(:comment).permit(:content)
+  end
+
+  def find_commentable
+    @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+    @commentable = Gossip.find_by_id(params[:gossip_id]) if params[:gossip_id]
   end
 
 end

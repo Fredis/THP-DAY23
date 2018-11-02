@@ -25,6 +25,8 @@
   
       <th>Commentaire</th>
       <th>Auteur</th>
+      <th>Commenter le commentaire</th>
+   
      
       <th>Editer le commentaire</th>
     </tr>
@@ -37,6 +39,9 @@
         </td>
         <td>
           <%= element.user.first_name %>
+        </td>
+        <td>
+        <%= link_to "Commenter le commentaire", new_registration_gossip_comment_comment_path(params[:registration_id],element.id,params[:id]), class: "btn btn-success" %>
         </td>
         <td>
           <% if params[:registration_id].to_i == element.user_id %>

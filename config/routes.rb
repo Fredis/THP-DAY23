@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'registrations#new'
   resources 'registrations', only: [:new, :create] do
      resources 'gossips', only: [:new, :create, :show, :index, :edit, :update, :destroy] do 
-        resources 'comments', only: [:new, :create, :show, :edit, :update, :destroy, :show] 
+        resources 'comments', only: [:new, :create, :show, :edit, :update, :destroy, :show] do 
+          resources 'comments' 
+          end
      end 
   end
 
