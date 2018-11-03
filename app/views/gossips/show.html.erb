@@ -21,7 +21,6 @@
   
   <br />
   <br />
-  <% puts "///////////#{params}" %>
   <%= link_to "Commenter le Gossip", new_registration_gossip_comment_path(params[:registration_id],params[:id], "Gossip" ), class: "btn btn-success" %> <br/ >
 	<br />
   <%= "#{@gossip.comments.count.to_s} comments" %> 
@@ -52,11 +51,11 @@
           	<% end %>
         	</td>
 		<td>
-			<%= link_to "Commenter le commentaire", new_registration_gossip_comment_path(params[:registration_id],params[:id], "Comment"), class: "btn btn-success" %> <br/ >
+			<%= link_to "Commenter le commentaire", new_registration_gossip_comment_path(params[:registration_id], params[:id], [element.id, "Comment"]), class: "btn btn-success" %> <br/ >
 		</td>
 
 
-		<% @comments.each do |sub| %>
+		<% Comment.all.each do |sub| %>
 			<% if sub.commentable_type == "Comment" && sub.commentable_id == element.id %>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<tr>
@@ -68,7 +67,7 @@
 					</td>
 					<td>
 					<% if params[:registration_id].to_i == element.user_id %>
-						<%= link_to "Lien", edit_registration_gossip_coment_path(params[:registration_id], params[:id], sub.id) %>
+						<%= link_to "Lien", edit_registration_gossip_comment_path(params[:registration_id], params[:id], sub.id) %>
 					<% end %>
 					</td>
 				</tr>

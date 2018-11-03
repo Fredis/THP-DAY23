@@ -6,17 +6,17 @@ class CommentsController < ApplicationController
   end
 
   def new
-    puts "JE SUIS DANS NEW////////////////////////////////////////////////////////////////////////////////////////////// : #{params}"
     @registration = Registration.find(params[:registration_id])
     @gossip = Gossip.find(params[:gossip_id])
     @comment = Comment.new
   end
 
   def create
-    if params[:format] == "Gossip"
+    tmp = params[:format].split('/')
+    if tmp[1] == "Gossip"
       @comment = Comment.create!(content: params_from_form[:content], user_id: params[:registration_id].to_i, commentable_type: "Gossip", commentable_id: params[:gossip_id] )
     else
-      @comment = Comment.create!(content: params_from_form[:content], user_id: params[:registration_id].to_i, commentable_type: "Comments", commentable_id: params[:comment_id])
+      @comment = Comment.create!(content: params_from_form[:content], user_id: params[:registration_id].to_i, commentable_type: "Comment", commentable_id: tmp[0].to_i)
     end
     redirect_to registration_gossips_path(params[:registration_id])
   end 
