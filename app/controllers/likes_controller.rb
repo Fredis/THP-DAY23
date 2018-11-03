@@ -7,6 +7,9 @@ class LikesController < ApplicationController
     redirect_to registration_gossip_path(params[:registration_id], params[:gossip_id])
   end
 
-  def delete
+  def destroy
+    @likes = Like.find(params[:id])
+    @likes.destroy
+    redirect_to registration_gossip_path(params[:registration_id], params[:gossip_id])
   end
 end

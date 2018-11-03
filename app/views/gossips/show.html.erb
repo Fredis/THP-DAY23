@@ -16,8 +16,8 @@
 	<% if @gossip.likes.find_by(user_id: User.find(params[:registration_id])) == nil  %>
 		<%= link_to "Like", registration_gossip_likes_path(params[:registration_id], @gossip.id), class: "btn btn-danger", method: :post  %>
 	<% else %>
-    Liké!
-  <% end %>
+    		<%= link_to "Unlike", registration_gossip_like_path(params[:registration_id], @gossip.id, @gossip.likes.find_by(user_id: User.find(params[:registration_id])).id), method: :delete %>
+  	<% end %>
   
   <br />
   <br />
