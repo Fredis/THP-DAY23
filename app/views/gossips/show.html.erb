@@ -31,9 +31,7 @@
   <thead>
     <tr>
       <th>Commentaire</th>
-      <th>Auteur</th>
-     
-      <th>Editer le commentaire</th>
+      <th>Auteur</th> 
     </tr>
   </thead>
   <tbody>
@@ -47,18 +45,19 @@
         	</td>
         	<td>
           	<% if params[:registration_id].to_i == element.user_id %>
-          		<%= link_to "Lien", edit_registration_gossip_comment_path(params[:registration_id], params[:id], element.id) %>	
+          		<%= link_to "Éditer", edit_registration_gossip_comment_path(params[:registration_id], params[:id], element.id) %>	
           	<% end %>
         	</td>
 		<td>
-			<%= link_to "Commenter le commentaire", new_registration_gossip_comment_path(params[:registration_id], params[:id], [element.id, "Comment"]), class: "btn btn-success" %> <br/ >
+			<%= link_to "Commenter le commentaire", new_registration_gossip_comment_path(params[:registration_id], params[:id], [element.id, "Comment"]), class: "btn btn-success" %>
+		<br/ >
 		</td>
-
-
+	</tr>
 		<% Comment.all.each do |sub| %>
 			<% if sub.commentable_type == "Comment" && sub.commentable_id == element.id %>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<tr>
+					<td>
+					</td>
 					<td>
 						<%= sub.content %>
 					</td>
@@ -66,14 +65,13 @@
 						<%= sub.user.first_name %>
 					</td>
 					<td>
-					<% if params[:registration_id].to_i == element.user_id %>
-						<%= link_to "Lien", edit_registration_gossip_comment_path(params[:registration_id], params[:id], sub.id) %>
-					<% end %>
+						<% if params[:registration_id].to_i == element.user_id %>
+							<%= link_to "Éditer", edit_registration_gossip_comment_path(params[:registration_id], params[:id], sub.id) %>
+						<% end %>
 					</td>
 				</tr>
 			<% end %>
 		<% end %>
-      	</tr>
     <% end %>
   </tbody>
 </table>
