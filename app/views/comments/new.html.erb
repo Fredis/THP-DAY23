@@ -2,10 +2,11 @@
 
 
 <%= form_for [@registration, @gossip, @comment] do |f| %>
+<% puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!GROS PUTS DE TA MERE TU ME CASSE LES COUILLES #{params[:format]}" %>
   <div class="form-group">		
     <label for="formGroupExampleInput">Ajoute moi du commentaire bien sale :</label>
     <%= f.text_area :content, class: "form-control" %>
-
+    <%=hidden_field_tag :format, params[:format]%> 
   </div>
     <%= f.submit "Enregistre ton commentaire !", class: "btn btn-success" %>
 
